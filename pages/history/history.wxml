@@ -1,0 +1,16 @@
+<!--pages/history/history.wxml-->
+<!-- <view bindtap='back'>返回</view>       -->
+<scroll-view >
+<!-- <view  class="zuiwaimian" wx:for="{{historyList}}" wx:key="{{this}}" wx:for-item="aa"> -->
+    <view wx:if="{{hasHistory}}" class="historyList" wx:for="{{historyList}}" wx:key="{{this}}">
+        <image src="{{item.url}}" />
+      <text class="name">{{item.name}}</text>
+      <text class="num">购买数量： {{item.num}}</text>
+      <text class="price">单价： ￥{{item.price}}</text>
+    </view>
+    <view wx:if="{{hasHistory}}" class="count">总价： ￥{{count}}</view>
+<!-- </view> -->
+    <view wx:if="{{!hasHistory}}" class="nothing">
+        <text>当前还没有购买记录</text>
+    </view>
+</scroll-view>

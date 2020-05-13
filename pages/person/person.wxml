@@ -1,0 +1,23 @@
+<!-- person.wxml -->
+<view>
+  <image class="pic"src="http://tc.sinaimg.cn/maxwidth.800/tc.service.weibo.com/file_digitaling_com/04e2ad0b419acf96c20f2aadda3067d4.gif" mode='aspectFit'></image>
+</view>
+<view class="container">
+  <form bindsubmit='submit'>
+    <view class="item flex">
+      <label>姓名：</label><input name="username" value='{{obj.username}}' type='text'></input>
+    </view>
+    <view class="item flex">
+      <label>手机：</label><input name="tel" value='{{obj.tel}}' type='tel'></input>
+    </view>
+    <view class="item flex">
+      <label>邮箱：</label><input name="email" value='{{obj.email}}' type='email'></input>
+    </view>
+    <view class="item flex">
+      <label>地址：</label><input name="address" value='{{obj.address}}' type='text'></input>
+    </view>
+    <view>
+      <button form-type='submit'>信息保存</button>
+    </view>
+  </form>
+</view>

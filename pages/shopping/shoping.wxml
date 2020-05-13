@@ -1,0 +1,76 @@
+<!--pages/shopping/shoping.wxml-->
+<!-- 头部图片 -->
+  <view class="title-pic">
+    <image src="{{titlePic}}" />
+  </view>
+  <scroll-view scroll-x class="list-pic">
+    <view class="picture" wx:for="{{listPic}}" wx:key="{{index}}">
+      <image class="{{id==item.id?'check':''}}" data-id="{{item.id}}" data-url="{{item.url}}" src="{{item.url}}" bindtap="showChoose" />
+      <image wx:if="{{id==item.id}}" class="goupic" src="{{goupic}}" />
+    </view>
+  </scroll-view>
+  <!-- 选择商品 -->
+  <text class="goods">选择商品</text>
+  <view wx:for="{{starbucksList}}" wx:key="{{this}}" class="item">
+    <view class="pic" >
+      <image src="{{item.url}}" bindtap='item_message' data-imgnum="{{item.imgnum}}" data-item_url="{{item.url}}" data-item_name="{{item.name}}" data-item_price="{{item.price}}"/>
+    </view>
+    <view>
+      <view class="item_name">{{item.name}}</view>
+      <view class="item_price">￥{{item.price}}</view>
+    </view>
+    <view>
+      <view class="add" bindtap="addnum" data-index="{{index}}" data-status="{{item.status}}">
+        <image src="{{item.num!=0?add1:add}}" />
+      </view>
+      <view wx:if="{{item.num!=0 }}" class="xiabiao {{item.num==0?'out':''}}"></view>
+      <view class="number {{item.num==0?'out':''}}">{{starbucksList[index].num}}</view>
+      <view class="del {{item.num==0?'out':''}}" bindtap="delnum" data-index="{{index}}" data-status="{{item.status}}">
+        <image src="../../images/jian.png" />
+      </view>
+
+    </view>
+  </view>
+
+  <!-- 孙建淳 商品信息 -->
+  <view class = "background {{choose?'':'out'}}" catchtap='message_close'>
+    <view class="show_message" catchtap='preventDefault'>
+      <view class="msg_pic">
+        <image src="{{item_url}}" />
+      </view>
+      <view class="msg_close" catchtap='message_close'>
+        <image src="../../images/cha.png" />
+      </view>
+      <scroll-view class="content_msg" scroll-y style="height: 750rpx">
+        <view class="content_msg_title">
+          <text class="drink_inSeason">{{item_name}}</text>
+          <text class="price">￥ {{item_price}}</text>
+        </view>
+        <view class="content_msg_text">
+          <view class="stores">
+            <text class="allow_stores">适用门店:</text>
+            <text class="all_stores" bindtap="search_stores">查看全部门店</text>
+          </view>
+          <view class="theTime">
+            <text class="using_time_part">可用时段:</text>
+            <text class="using_time">{{introduce[imgnum].thetime}}</text>
+          </view>
+          <view class="information">
+            <view class="use_information">使用须知:</view>
+            <!-- <text class="use_information_text">{{introduce[imgnum].themake}}</text> -->
+            <view class="use_information_text">
+            <view class="all_use_information_text" wx:for="{{item_introduce}}" wx:key="{{this}}">{{item}} </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+<!-- 购买栏 -->
+<view class="foot">
+  <view class="foot_number">{{number}}份礼品</view>
+  <view class="count">￥{{count}}</view>
+  <button class="shopping" disabled="{{disabled}}" bindtap="buy">购买</button>
+
+</view>

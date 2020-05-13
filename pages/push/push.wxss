@@ -1,0 +1,378 @@
+/* pages/push/push.wxss */
+.container {
+  width: 100%;
+  padding-top: 0px;
+}
+
+/* 顶部图片 */
+.container .top-pic {
+  width: 100%;
+  height: 700rpx;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.top-pic image {
+  height: 700rpx;
+  width: 100%;
+}
+
+/* 选择卡封面部分 */
+.card-title {
+  display: block;
+  height: 50px;
+  line-height: 50px;
+  padding-left: 20px;
+  font-size: 14px;
+  color:#494949;
+  /* background-color: pink; */
+}
+
+/* 横向滚动部分 */
+.container .card {
+  width: 670rpx;
+  height: 160rpx;
+  display: flex;
+  /* background-color: skyblue; */
+  margin: 0 auto;
+  white-space: nowrap;
+  padding-top: 20rpx;
+}
+
+.container .card .pagelist {
+  display: inline-block;
+  width: 230rpx;
+  height: 140rpx;
+  margin-left: 30px;
+  /* overflow: hidden; */
+  border-radius: 5px;
+}
+
+.container .card .pagelist:first-child {
+  margin-left: 0;
+}
+
+.container .card .pagelist:last-child {
+  margin-right: 15px;
+}
+
+.card .pagelist image {
+  width: 230rpx;
+  height: 140rpx;
+  border-radius: 5px;
+}
+
+.card .pagelist .choosed {
+  border: 2px solid green;
+  width: 232rpx;
+  height: 142rpx;
+}
+
+.card .pagelist .gou {
+  border: none;
+    width: 40rpx;
+    height: 40rpx;
+    position: relative;
+    top: -108rpx;
+    left: -22rpx;
+
+}
+
+/* 产品列表 */
+.container .product {
+  /* background-color: pink; */
+  margin: 0 auto;
+  width: 650rpx;
+  height: 225rpx;
+  border-bottom: 2px solid #ccc;
+  position: relative;
+}
+
+.product .pic {
+  /* background-color: skyblue; */
+  top: 25rpx;
+  width: 193rpx;
+  height: 165rpx;
+  position: absolute;
+}
+
+.product .pic image {
+  display: block;
+  width: 193rpx;
+  height: 165rpx;
+  border-radius: 5rpx;
+}
+
+.product .intro {
+ position: absolute; 
+ /* background-color: orange; */
+  left:230rpx;
+}
+.product .intro text {
+  display: block;
+  margin-top: 20rpx;
+  font-size: 14px;
+}
+.product .intro .price {
+  font-size: 12px;
+}
+
+/* 选择商品数量 */
+.proList .addNum{
+  /* background-color: orange; */
+    width: 38rpx;
+    height: 38rpx;
+    position: absolute;
+    top: 140rpx;
+    right:20rpx ;
+    border-radius: 50%;
+}
+.proList .addNum image{
+    /* display: block; */
+    width: 38rpx;
+    height: 38rpx;
+}
+.proList .delNum{
+    width: 38rpx;
+    height: 38rpx;
+    position: absolute;
+    top: 140rpx;
+    right:140rpx;
+    border-radius: 50%;
+}
+
+
+.proList .delNum image{
+    width: 38rpx;
+    height: 38rpx;
+}
+.proList .listNum{
+    position: absolute;
+    top: 135rpx;
+    right:90rpx;
+}
+
+.proList .xiabiao{
+    width: 50rpx;
+    height: 5rpx;
+    position: absolute;
+    background-color: #299e6d;
+    top: 185rpx;
+    right: 75rpx;
+}
+.proList .xiabiao.out{
+    display: none;
+}
+
+/* 底部超链接 */
+.makeknow{
+    width: 100%;
+    height: 150rpx;
+    /* display: inline-block; */
+    position: relative;
+    /* background-color: red; */
+}
+
+navigator{
+    height:auto;
+    width:150rpx;
+    display:block;
+}
+.makeknow text{
+    font-size: 25rpx;
+    color: #299e6d;
+    text-decoration: underline;
+}
+.makeknow .make{
+    position: absolute;
+    top: 55rpx;
+    left: 240rpx;
+}
+
+.makeknow .know{
+    position: absolute;
+    top: 55rpx;
+    right: 240rpx;
+}
+
+/* 底部购买 */
+.starbucks-foot{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 155rpx;
+    background-color: #fff;
+}
+
+.starbucks-foot::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2rpx;
+    background-color: #e1e1e1;
+    top: 0rpx;
+    left: 0rpx;
+}
+.starbucks-foot .number{
+    position: absolute;
+    font-size: 25rpx;
+    color: #c3c3c3;
+    top: 20rpx;
+    left: 65rpx;
+}
+
+.starbucks-foot .money{
+    position: absolute;
+    top: 60rpx;
+    left: 55rpx;
+    font-size: 30rpx;
+}
+
+.starbucks-foot .buy{
+    appearance: none;
+    width: 196rpx;
+    height: 68rpx;
+    background-color: #4aa668;
+    border-radius: 34rpx;
+    line-height: 68rpx;
+    color: #fff;
+    position: absolute;
+    top: 20rpx;
+    right: 50rpx;
+}
+
+.starbucks-foot .buy::after{
+    border: none;
+}
+
+/* 孙建淳 商品信息 */
+.out {
+  display: none;
+}
+.background {
+  /* display: none; */
+ position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0.4);
+}
+.show_message {
+  width: 750rpx;
+  height: 900rpx;
+  background-color: rgba(255, 255, 255,1);
+  /* background-color: white; */
+  position: absolute;
+  bottom: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+.show_message .msg_pic {
+  width: 260rpx;
+  height: 260rpx;
+  position: absolute;
+  top: -130rpx;
+  left: 245rpx;
+  background-color: white;
+  border-radius: 50%;
+}
+.show_message .msg_pic image {
+  border-radius: 50%;
+  display: block;
+  /* width: 80%;
+  height: 80%; */
+  width: 260rpx;
+  height: 260rpx;
+  margin: 0 auto;
+  vertical-align: middle;
+}
+.show_message .msg_close {
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 15px;
+  top: 15px;
+}
+.show_message .msg_close image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.show_message .content_msg {
+  width: 750rpx;
+  height: 700rpx;
+  /* background-color: yellow; */
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.drink_inSeason {
+  display: block;
+  font-size: 40rpx;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.price {
+  display: block;
+  font-size: 40rpx;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+.content_msg_title {
+  width: 690rpx;
+  height: 180rpx;
+  border-bottom: 1px solid gray;
+  margin-left: 30rpx;
+}
+.background ::-webkit-scrollbar {
+  width: 5px;
+  height: 100rpx;
+  color: gray;
+}
+.content_msg_text {
+  margin: 30rpx;
+  font-size: 30rpx;
+}
+.allow_stores {
+  color: gray;
+}
+.all_stores {
+  color: green;
+  padding-left: 25rpx;
+}
+.using_time_part {
+  color: gray;
+}
+.use_information {
+  color: gray;
+}
+.content_msg_text .stores {
+  padding-bottom: 25rpx;
+}
+.content_msg_text .theTime {
+  padding-bottom: 25rpx;
+}
+.content_msg_text .theTime .using_time {
+  padding-left: 25rpx;
+}
+.information {
+  display: flex;
+  font-size: 26rpx;
+}
+.information .use_information_text {
+  flex: 8;
+ display: flex;
+ flex-direction:column;
+}
+.information .all_use_information_text {
+  margin-bottom: 20rpx;
+  /* color: #dadada; */
+}
+.use_information_text {
+  /* padding-left: 25rpx; */
+} 
+.information .use_information {
+  flex: 2;
+}

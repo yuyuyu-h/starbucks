@@ -1,0 +1,51 @@
+<scroll-view scroll-y class="starbucks-container">
+  <!-- header-->
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="1000" circular="true">
+    <block wx:for="{{picture}}" wx:for-index="index" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item.url}}" data-page="{{item.page}}" class="slide-image" bindtap="imageto" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <!--end-->
+
+  <!-- middle_infomation -->
+  <button class="starbucks-btn" bindtap="buttonTo">
+    <image class="newImage" src="{{newImage}}" />
+    <text>分享相聚的味道</text>
+  </button>
+  <!--end-->
+
+  <!-- shopping_showcase -->
+  <text class="title">咖啡+祝福 即刻表心意</text>
+  <scroll-view class="sbList">
+    <view class="starbucks-list" wx:for="{{List}}" data-title="{{item.title}}" data-page="{{item.page}}" wx:key="{{item.page}}" bindtap="shoppingCart">
+      <image src="{{item.img}}" />
+      <text>{{item.title}}</text>
+    </view>
+  </scroll-view>
+  <!--end-->
+
+  <!-- botton_histroy-->
+  <view class="starbucks-foot">
+    <view class="cole-img">
+      <navigator hover-class="none" url="../../pages/history/history">
+        <image src="{{bzimg}}" />
+      </navigator>
+    </view>
+    <view class="text">
+      <navigator hover-class="none" class="nav" url="../../pages/history/history">
+        <text>购买历史</text>
+      </navigator>
+    </view>
+
+    <view class="person">
+      <navigator hover-class="none" class="personal" url="../../pages/person/person">
+        <text>修改信息</text>
+      </navigator>
+    </view>
+
+    
+  </view>
+  <!--end-->
+</scroll-view>

@@ -1,0 +1,103 @@
+<!--pages/push/push.wxml-->
+<scroll-view class='container' scroll-y>
+<!-- 顶部图片 -->
+  <view class='top-pic'>
+    <image src='../../images/shouye.png'></image>
+  </view>
+
+  <text class='card-title'>选择卡封面</text>
+
+  <!-- 横向滚动部分 -->
+  <scroll-view class='card' scroll-x>
+    <view class='pagelist' wx:for='{{pagelist}}' wx:key='{{index}}'>
+      <image src='{{item.url}}' data-id='{{item.id}}' class="{{id == item.id? 'choosed':''}}" bindtap='choosed'></image>
+      <image wx:if='{{id == item.id}}' src='../../images/gou.png' class='gou'></image>
+    </view>
+  </scroll-view>
+
+  <text class='card-title'>选择一份礼物</text>
+
+  <!-- 选择产品列表 -->
+  <scroll-view class='proList'>
+    <view class='product' wx:for='{{starbucksList}}' wx:key='{{index}}'>
+      <!-- 产品图片 -->
+      <view class='pic'>
+        <image src='{{item.url}}' bindtap='item_message' data-imgnum="{{item.imgnum}}" data-item_url="{{item.url}}" data-item_name="{{item.name}}" data-item_price="{{item.price}}"></image>
+      </view>
+      <!-- 名称与价格 -->
+      <view class='intro'>
+        <text class='name'>{{item.name}}</text>
+        <text class='price'>￥{{item.price}}</text>
+      </view>
+
+      <!-- 选择数量 -->
+      <view class='addNum' data-index='{{index}}' bindtap='addNum'>
+        <image wx:if='{{item.num == 0}}' src='../../images/add.png'></image>
+        <image wx:if='{{item.num != 0}}' src='../../images/jjjjj.png'></image>
+      </view>
+
+      <view wx:if='{{item.num != 0}}' class='delNum' data-index='{{index}}' bindtap='delNum'>
+        <image wx:if='{{item.num != 0}}' src='../../images/jian.png'></image>
+      </view>
+
+      <text wx:if='{{item.num != 0}}' class='listNum'>{{item.num}}</text>
+      <view wx:if='{{item.num != 0}}' class='xiabiao'></view>
+
+   </view>
+  </scroll-view>
+
+<!-- 底部超链接 -->
+   <view class="makeknow">
+        <navigator hover-class="none" url="../../pages/make/make">
+            <text class="make">使用须知</text>
+        </navigator>
+
+        <navigator hover-class="none" url="../../pages/know/know">
+            <text class="know">隐私权条款</text>
+        </navigator>
+    </view>
+
+    <!-- 孙建淳 商品信息 -->
+  <view class = "background {{choose?'':'out'}}" catchtap='message_close'>
+    <view class="show_message" catchtap='preventDefault'>
+      <view class="msg_pic">
+        <image src="{{item_url}}" />
+      </view>
+      <view class="msg_close" catchtap='message_close'>
+        <image src="../../images/cha.png" />
+      </view>
+      <scroll-view class="content_msg" scroll-y style="height: 750rpx">
+        <view class="content_msg_title">
+          <text class="drink_inSeason">{{item_name}}</text>
+          <text class="price">￥ {{item_price}}</text>
+        </view>
+        <view class="content_msg_text">
+          <view class="stores">
+            <text class="allow_stores">适用门店:</text>
+            <text class="all_stores" bindtap="search_stores">查看全部门店</text>
+          </view>
+          <view class="theTime">
+            <text class="using_time_part">可用时段:</text>
+            <text class="using_time">{{introduce[imgnum].thetime}}</text>
+          </view>
+          <view class="information">
+            <view class="use_information">使用须知:</view>
+            <!-- <text class="use_information_text">{{introduce[imgnum].themake}}</text> -->
+            <view class="use_information_text">
+            <view class="all_use_information_text" wx:for="{{item_introduce}}" wx:key="{{this}}">{{item}} </view>
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+    <!-- 购买 -->
+     <view class="starbucks-foot">
+        <text class="number">{{number}}份礼品</text>
+        <text class="money">￥{{money}}.00</text>
+        <button class="buy" disabled="{{disabled}}" bindtap="buySomething">购买</button>
+    </view>
+
+
+</scroll-view>
